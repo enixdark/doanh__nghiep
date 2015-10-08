@@ -88,11 +88,20 @@ class TrangVangVietNamSpider(CrawlSpider):
 			item['category_product'] = self.extract(sel,'//div[2]/div[@id="main_businessdetail"]/div[1]/div[3]/div[@class="detail_dc"]/div[6]/div[2]//text()')
 			item['summary'] = self.extract(sel,'//div[2]/div[@id="main_businessdetail"]/div[1]/div[5]//text()')
 			item['bussiness'] = self.extract(sel,'//div[2]/div[@id="main_businessdetail"]/div[1]//div[@style="margin-bottom:12px"]//text()',';')
-			item['products'] = []
+			= []
+			temp_product = ""
+			for product in [
+				self.extract(sel,'//div[2]/div[@id="main_businessdetail"]/div[1]//div[@class="sanphamL"]//text()',';'),
+				self.extract(sel,'//div[2]/div[@id="main_businessdetail"]/div[1]//div[@class="sanphamR"]//text()',';')]:
+				if product is not "":
+					temp_product += ";" + product
+			if temp_product != "":
+				temp_product.append({"products":temp_product})
+
 
 			for product in sel.xpath('//div[2]/div[@id="main_businessdetail"]/div[1]//div[@class="nhomsanphambox"]'):
-				pd_name = self.extract(product,'div[@class="nhomsanpham_txtbold"]//text()')
-				pd_products = self.extract(product,'div[@class="nhomsanpham_li2"]//text()')
+				pd_name = self.extract(product,'div[@class="nhomsanpham_txtbold"]//text()',';')
+				pd_products = self.extract(product,'div[@class="nhomsanpham_li2"]//text()',';')
 				item['products'].append({pd_name:pd_products})
 			#data = sel.xpath('//div[2]/div[@id="main_businessdetail"]/div[1]//div[@class="texthoso"]/text()').extract()
 			try:
