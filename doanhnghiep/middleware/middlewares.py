@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from scrapy.http import HtmlResponse, Response
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 from scrapy.conf import settings
 import re

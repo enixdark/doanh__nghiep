@@ -9,10 +9,10 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'trangvangvietnam'
+BOT_NAME = 'doanhnghiep'
 
-SPIDER_MODULES = ['trangvangvietnam.spiders']
-NEWSPIDER_MODULE = 'trangvangvietnam.spiders'
+SPIDER_MODULES = ['doanhnghiep.spiders']
+NEWSPIDER_MODULE = 'doanhnghiep.spiders'
 
 
 USER_AGENT_LIST = [
@@ -28,21 +28,21 @@ USER_AGENT_LIST = [
 
 DOWNLOADER_MIDDLEWARES = {
     # 'foody.middleware.middlewares.JSMiddleware': 300,
-    'trangvangvietnam.middleware.middlewares.ProxyMiddleware': 300,
-    'trangvangvietnam.middleware.middlewares.RandomUserAgentMiddleware': 300
+    'doanhnghiep.middleware.middlewares.ProxyMiddleware': 300,
+    'doanhnghiep.middleware.middlewares.RandomUserAgentMiddleware': 300
 }
 
 ITEM_PIPELINES = {
-  'trangvangvietnam.pipelines.TVVNPipeline': 1,
+  'doanhnghiep.pipelines.TVVNPipeline': 1,
 }
 
 HTTP_PROXY = 'http://127.0.0.1:8118'
 
 LSM_PATH = "."
-LSM_DBNAME = "trangvangvietnam.db"
+LSM_DBNAME = "doanhnghiep.db"
 
 MONGODB_URI = 'mongodb://localhost:27017'
-MONGODB_DATABASE = 'trangvangvietnam'
+MONGODB_DATABASE = 'doanhnghiep'
 
 MONGODB_STOP_ON_DUPLICATE = 100
 
@@ -55,8 +55,8 @@ DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # LOG_FILE = './muabannhadat.vn.log'
 # DOWNLOAD_DELAY = 3
-CRAWLER_DOMAIN='http://trangvangvietnam.com'
-CRAWLER_COLLECTION = 'crawler.trangvangvietnam.com'
+CRAWLER_DOMAIN='http://cafef.vn'
+CRAWLER_COLLECTION = 'crawler.doanhnghiep.vn'
 
 DOWNLOAD_HANDLERS = {'s3': None,}
 
